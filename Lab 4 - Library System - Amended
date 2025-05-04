@@ -1,1 +1,63 @@
 
+public class LibrarySystem {
+    public static void main(String[] args) {
+        Author author = new Author("Victor Hugo", "DOB - 2/26/1802", "French");
+        Book book = new Book("The Hunchback of Notre Dame", 10.00);
+
+        System.out.println(author.toString());
+        System.out.println(book.toString());
+    }
+
+    static class Author {
+        private String name;
+        private String DOB;
+        private String nationality;
+
+        public Author(String name, String DOB, String nationality) {
+            this.name = name;
+            this.DOB = DOB;
+            this.nationality = nationality;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getDOB() {
+            return DOB;
+        }
+
+        public String getNationality() {
+            return nationality;
+        }
+
+        @Override
+        public String toString() {
+            return "Author: " + name + ", " + DOB + ", " + nationality;
+        }
+    }
+
+    static class Book {
+        private String title;
+        private double price;
+
+        public Book(String title, double price) {
+            this.title = title;
+            this.price = price;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public double getPrice() {
+            return price;
+        }
+
+        @Override
+        public String toString() {
+            return "Title: " + title + ", Price: $" + price;
+        }
+    }
+}
+
