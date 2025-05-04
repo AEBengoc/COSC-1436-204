@@ -1,0 +1,120 @@
+//Hero.java portion of the Lab
+public class Hero {
+    private String name;
+    private int powerLevel;
+    private Affiliation affiliation;
+
+    public Hero(String name, int powerLevel, Affiliation affiliation) {
+        this.name = name;
+        this.powerLevel = powerLevel;
+        this.affiliation = affiliation;
+    }
+
+    // Able to reuse some parts of code from superheroes lab
+    public String getName() {
+        return name;
+    }
+
+    public int getPowerLevel() {
+        return powerLevel;
+    }
+
+    public Affiliation getAffiliation() {
+        return affiliation;
+    }
+
+    public String toString() {
+        return name + " (Power: " + powerLevel + ", Team: " + affiliation + ")";
+    }
+}
+
+//Affiliation.java portion of the Lab
+public enum Affiliation {
+    AVENGERS,
+    JUSTICE_LEAGUE,
+    X_MEN,
+    FANTASTIC_FOUR,
+    TEEN_TITANS,
+    GUARDIANS_OF_THE_GALAXY,
+    GUARDIANS_OF_THE_GLOBE,
+    UNAFFILIATED	
+}
+
+//HeroManager.jaba portion of the lab
+import java.util.ArrayList;
+
+public class HeroManager {
+    private ArrayList<Hero> heroList;
+
+    public HeroManager() {
+        heroList = new ArrayList<>();
+    }
+
+    public void addHero(Hero hero) {
+        if (hero != null) {
+            heroList.add(hero);
+            System.out.println(hero.getName() + " added.");
+        }
+    }
+
+    public void removeHero(String name) {
+        boolean removed = false;
+        for (int i = 0; i < heroList.size(); i++) {
+            if (heroList.get(i).getName().=IgnoreCase(name)) {
+                heroList.remove(i);
+                System.out.println(name + "Hero Has been removed from the list.");
+                removed = true;
+                break;
+            }
+        }
+
+        if (!removed) {
+            System.out.println(name + "Hero was not found.");
+        }
+    }
+
+    public void displayHeroes() {
+        if (heroList.isEmpty()) {
+            System.out.println("The list is empty.");
+            return;
+        }
+// I used “Known Affiliations” instead of “Affiliations” because some heroes are in multiple groups.
+        System.out.println("Hero List:");
+        for (Hero hero : heroList) {
+            System.out.println("Heroes:" + hero.getName() + " Strength/Power Level " + hero.getPowerLevel() + ", Known Affiliations: " + hero.getAffiliation() + ")");
+        }
+    }
+}
+// Main.java portion of this lab
+public class Main {
+    public static void main(String[] args) {
+        HeroManager manager = new HeroManager();
+
+        manager.addHero(new Hero("Rex Splode”, 75, Affiliation.GUARDIANS_OF_THE_GLOBE));
+        manager.addHero(new Hero("Beast Boy", 60, Affiliation.TEEN_TITANS));
+        manager.addHero(new Hero("Ant-Man", 70, Affiliation.AVENGERS));
+        manager.addHero(new Hero("Green Lantern", 90, Affiliation.JUSTICE_LEAGUE));
+
+        System.out.println("List:");
+        manager.displayHeroes();
+
+        manager.bubbleSortByPower();
+        System.out.println("Power in Order");
+        manager.displayHeroes();
+
+        manager.removeHero("Rex Splode");
+        System.out.println("Removing Rex Splode");
+        manager.displayHeroes();
+
+        manager.addHero(new Hero("Jeff The Land Shark", 50, Affiliation.UNAFFILIATED));
+        System.out.println("Adding Jeff");
+        manager.displayHeroes();
+
+        System.out.println("Hero Table");
+        manager.displayHeroesAs2DArray();
+    }
+}
+
+
+
+
