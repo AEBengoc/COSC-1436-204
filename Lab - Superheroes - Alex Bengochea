@@ -1,0 +1,72 @@
+public class SuperheroRoster {
+
+    public static void main(String[] args) {
+        // Here I am declaring heroNames abilities and powers
+        String[] heroNames = {"The Hulk", "Ant-Man", "Beast Boy"};
+        String[] abilities = {"Gamma Transformation, Super Strength", "Ability to change sizes at  will, Quantum Realm Travel", "Can morph into any animal, keep the animals reflexes."};
+        int[] powerLevels = {95, 70, 55};
+
+               for (int i = 0; i < heroNames.length; i++) {
+            System.out.println("Hero: " + heroNames[i]);
+            System.out.println("Abilities: " + abilities[i]);
+            System.out.println("Power Level: " + powerLevels[i]);
+            System.out.println();
+        }
+
+             double averagePower = calcAvgPwr(powerLevels);
+        System.out.println("AvgPwrLvl: " + averagePower);
+    }
+
+    // Hero Searcher
+    public static void searchHero(String[] names, String[] abilities, int[] powerLevels, String target) {
+        boolean found = false;
+        for (int i = 0; i < names.length; i++) {
+            if (names[].equalsIgnoreCase(target)) {
+                System.out.println("Hero Found!: ");
+                System.out.println("Name: " + names[i]);
+                System.out.println("Abilities: " + abilities[i]);
+                System.out.println("Power Level: " + powerLevels[i]);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println(target + "Hero was not found.");
+        }
+    }
+
+    public static double calcAvgPwr(int[] powerLevels) {
+        int sum = 0;
+        for (int power : powerLevels) {
+            sum += power;
+        }
+        return (double) sum / powerLevels.length;
+    }
+}
+
+class Superhero {
+    // Declaring name, abilities, and powerLevel
+    private String name;
+    private String ability;
+    private int powerLevel;
+
+      public Superhero(String name, String ability, int powerLevel) {
+        this.name = name;
+        this.ability = ability;
+        this.powerLevel = powerLevel;
+    }
+
+    // displaying the Hero/Heroes
+    public void displayHero() {
+        System.out.println("Hero: " + name);
+        System.out.println("Abilities: " + ability);
+        System.out.println("Power Level: " + powerLevel);
+        System.out.println();
+    }
+}
+
+
+
+
+
+
