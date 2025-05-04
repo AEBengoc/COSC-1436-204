@@ -1,0 +1,74 @@
+// The following the Vehicle Base Class
+
+public class Vehicle {
+    protected int speed;
+    private double fuel;
+
+    public Vehicle(int speed, double fuel) {
+        this.speed = speed;
+        this.fuel = fuel;
+    }
+
+    public void start() {
+        System.out.println("Vehicle Starting.");
+    }
+
+    public void stop() {
+        System.out.println("Vehicle Stopping.");
+    }
+
+    public void final displayFuel() {
+        System.out.println("Amount of Fuel" + fuel + "Gallons");
+    }
+  }
+// The following is the Car Subclass.
+
+public class Car extends Vehicle {
+    private int numberOfDoors;
+// The following is the constructor for the car subclass
+    public Car(int speed, double fuel, int numberOfDoors) {
+        super(speed, fuel);
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    @Override
+    public void start() {
+        System.out.println("Starting Car.");
+    }
+
+    public void honk() {
+        System.out.println("Beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep!");
+    }
+// This is the start of the Bicycle subclass
+
+public class Bicycle extends Vehicle {
+    private boolean hasBell;
+// What kind of bicycle with a bell uses fuel? Lol.
+    public Bicycle(int speed, double fuel, boolean hasBell) 
+    }
+
+    @Override
+    public void start() {
+        System.out.println("The bicycle is now in motion, don’t hit any pedestrians");
+    }
+
+    public void ringBell() {
+        System.out.println(hasBell ? "https://www.youtube.com/watch?v=k1a9HN1g-uk" : "The bell is absent or broken");
+    }
+// This is the start of the main class
+public class Main {
+    public static void main(String[] args) {
+        Car = new Car(1, 75, 2);
+        car.start(); car.displayFuel(); car.honk();
+
+        Bicycle bicycle = new Bicycle(25, 0.0, true);
+        bicycle.start(); bicycle.displayFuel(); bicycle.ringBell();
+         }
+}
+
+
+
+
+
+
+
